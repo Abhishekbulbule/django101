@@ -1,0 +1,15 @@
+{% extends "base.html" %} {% block title %}Detail-View{% endblock title %}
+{%block body%}
+
+<h3><a href="{% url 'feed:index' %}"> &larr; Go Back</a></h3>
+<br />
+<br />
+<div class="d-flex flex-column align-items-center">
+  
+  <h2>{{object.text}}</h2>
+
+  <h3>Image</h3>
+  <img src="{{object.image.url}}" class="img-fluid rounded-5" />
+</div>
+
+{%endblock%}

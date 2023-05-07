@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load sorl_thumbnail %}
+{% block title %}Home-View{% endblock %}
+
+ {%block body%}
+
+ <div class="d-flex flex-wrap justify-content-evenly ">
+
+   {% for post in posts%}
+  
+     <div class="card m-3" style="width: 18rem;">
+       {% thumbnail post.image "290x200" crop="center" as im %}
+       <img src="{{post.image.url}}"class="card-img-top" height={{im.height}} alt="..no image">
+       
+       {% endthumbnail %}
+       <div class="card-body">
+         <h5 class="card-title">{{post.text}}</h5>
+         <p class="card-text"></p>
+         <a href="{% url 'feed:detail' post.id %}" class="btn btn-primary">View Full details</a>
+        </div>
+      </div>
+      {%empty%}
+      <div class="d-flex m-5 flex-column justify-content-evenly ">
+        <h3>Welcome!</h3>
+        <p>Add your first image?</p>
+        <a href="{% url 'feed:post' %}" class="btn btn-lg btn-success">Add post</a>
+      </div>
+    {% endfor %}
+    
+  </div>
+{%endblock%}

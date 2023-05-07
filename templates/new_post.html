@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Detail-View{% endblock title %}
+{%block body%}
+
+<form method="POST" class="my-5 col-sm-6 offset-4"  enctype="multipart/form-data">
+    {% csrf_token %}
+    <h2>Upload an image</h2>
+        {{form.as_p}}
+        <div>
+            <button type = "submit" class="btn btn-success btn-lg ">Submit</button>
+        </div>
+    </form>
+{%endblock%}
+
